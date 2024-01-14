@@ -1,0 +1,32 @@
+﻿dotnet ef migrations add StockMigration --project CSEData.Worker --context StockDbContext
+dotnet ef database update --project CSEData.Worker --context StockDbContext
+
+
+DECLARE @givenTime DATETIME;
+SET @givenTime = '2023-08-07 23:25:00'; -- Replace this with your desired time
+
+SELECT [Id]
+      ,[CompanyId]
+      ,[Price]
+      ,[Volume]
+      ,[Open]
+      ,[High]
+      ,[Low]
+      ,[Time]
+FROM [dbo].[StockPrice]
+WHERE [Time] > @givenTime;
+
+
+DELETE FROM [dbo].[StockPrice];
+
+
+SELECT TOP 1 [Id]
+      ,[CompanyId]
+      ,[Price]
+      ,[Volume]
+      ,[Open]
+      ,[High]
+      ,[Low]
+      ,[Time]
+FROM [dbo].[StockPrice]
+ORDER BY [Time] DESC;
