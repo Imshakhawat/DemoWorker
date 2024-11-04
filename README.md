@@ -1,5 +1,5 @@
 
-# Technical Documentation for `CSEData Worker` Project
+#  `CSEData Worker`
 
 ## 1. Introduction
 The `CSEData Worker` project is a .NET-based worker service designed for data collection and management tasks related to stock data. The service includes scraping functionalities, database handling, and periodic data updates. It leverages Autofac for dependency injection, Serilog for logging, and Entity Framework for database operations.
